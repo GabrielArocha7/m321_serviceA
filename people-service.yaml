@@ -1,0 +1,29 @@
+openapi: 3.0.3
+info:
+  title: People Service
+  version: 1.0.0
+paths:
+  /people:
+    get:
+      summary: Liefert alle Personen
+      responses:
+        "200":
+          description: Liste von Personen
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Person"
+components:
+  schemas:
+    Person:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Anna Müller
+        addr:
+          type: string
+          example: Bahnhofstrasse 1, 8001 Zürich
+      required: [name, addr]
